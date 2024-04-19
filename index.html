@@ -85,44 +85,29 @@
   <p>
     This histogram allows viewers to explore the data at a very high level. It displays the overall data by illustrating the frequency of ratings of Airbnbs in Boston. It is very clearly skewed to the left, alluding to the oversaturation of good ratings in the area. One takeaway from this visualization is that the vast majority of Airbnbs in Boston are ranked more than 4 on a scale of 5. It is interesting to note, however, that very few listings achieve the coveted 5 star rating. This sort of environment can make it difficult for Airbnb owners to differentiate themselves and present challenges for visitors when trying to pick the right listing for them. This visualization addresses the task of identifying the distribution of the data.
   </p>
-  <p>
-    This histogram employs the classic design of histograms and keeps it simple. It was made using D3 and employs bars as the marks. The channel is the location of the bars. The x axis shows the rating and the y axis the frequency of that rating. The scale on the x axis ranges from 1.0 to 5.0, showing the entire range of ratings in the data set. 
-  </p>
 
 	<h2 id="section2">Bathrooms Correlation</h2>
   <center><img src="images/bathrooms.png" alt="bathrooms and rating plot" height = 400, width = 600 ></center> 
   <p> 
     This topographical distribution provides insight into the relationship between the number of bathrooms and the overall ratings. The more layers there are on the graph, the higher the density of listings with that number of bathrooms and that ranking. The main takeaway from this graph is that having more than one bathroom is optimal. There is a much wider spread of rankings on properties that only have one bathroom compared to properties with more than one bathroom. It is important to acknowledge that there are simply more listings with one bathroom than with multiple, which partially contributes to the spread of rankings but does not take away from the higher rankings that properties with multiple bathrooms have. This visualization addresses the task of identifying characteristics that earn listings a higher rating and can be helpful to new hosts looking to break into the market.
   </p>    
-  <p>
-    This visualization, made using Seaborn, employs a topographical encoding to show the density of reviews against a specific attribute. The marks are the lines and the channel is the position of the lines. The more layers (or concentric shapes) there are, the higher the density of data at that point. For example, there are a lot of listings with one bathroom that receive ratings just below 5, leading to the nested shapes. In this visualization the overall review is the y axis and the number of bathrooms is the x axis. This topographical representation is less common than some visualizations, but due to the high number of data points, something like a scatter plot would be too crowded and confusing to interpret.
-  </p>
 
   <h2 id="section3">Neighborhood Ratings Boxplot</h2>
   <center><embed type="text/html" src="boxplot.html" width="700" height="500"></center>
   <p> 
     This static comparative boxplot visualization provides the user with information not only about the relative average ratings of different neighborhoods but also the spread of ratings. The outliers are marked with dots whereas the averages and quartiles are marked by boxes. While a user could initially rank neighborhoods based on simply average rating, that is not the full story, because some neighborhoods are not consistent in ratings. One of the main takeaways is that for a host or traveler, Longwood Medical may be the most reliable, well-rated area to aim for. It addresses the task of diving into the distribution of ratings by breaking down the distribution on a neighborhood by neighborhood basis.
   </p>	
-  <p>
-    The comparative boxplot visualization combines a lot of detailed information into one simple plot. The marks in this visualization are the points, bars and lines and the channel is the position of those marks. This allows the visualization to explore each neighborhood individually while also encouraging comparison. The neighborhoods are on the x axis because this allows for easy visual comparison. The y axis is the rating, so the boxplots show the overall spread of ratings. This type of visualization is helpful to illustrate several statistical facets of the data at once. This comparative boxplot was made using the Plotly Express library in python, with the boxplot feature, that requires a dataframe and column names. 
-  </p>
 
   <h2 id="section4">Interactive Neighborhood Map</h2>
   <embed type="text/html" src="review-by-neighborhoood.html" width=100% height="400">
   <p>
     For some potential visitors or prospective hosts, exploring Boston geographically might be easier than by neighborhood name. This interactive map allows users to view overall ratings in a geographic way. There are two levels of interaction present: the ability to change the zoom on the map and tooltips. Users can zoom in and out and move the map around to get a closer look at what neighborhoods they are interested in. When viewers click on a neighborhood on the map a tooltip with the neighborhood's name and average rating pops up, giving exact numbers to complement the color coding.This visualization addresses the task of identifying which neighborhoods have the highest ratings in aggregate, which is important context for potential visitors. One primary takeaway from this visualization is that ratings tend to get better as one moves away from center-city.
   </p>
-  <p>
-    The primary purpose of this map is to allow viewers to explore the data geographically, so that influenced the design. It is made with Altair and overlays the data on the map of Boston. This is a choropleth map because the color encoding communicates relative amounts effectively. The gradient color scheme and the neighborhoods positions are the channels in this visualization and the marks are the shape of the neighborhoods. The color corresponds to the neighborhood average ratings, allowing viewers to compare neighborhoods. The map visualization was made using folium and a merged data frame of the boston neighborhood polygons and the Airbnb listings dataframe that included neighborhood names. 
-  </p>
 
 	<h2 id="section5">Interactive Scatter Plot</h2>
   <center><embed type="text/html" src="scatterplot.html" width="500" height="400"></center>
   <p>
     In a data set with this many meaningful attributes, it can be difficult to decide what to isolate. This scatterplot allows users to select what characteristic’s matter most to them and compare them to the overall rating. The x axis is the overall rating attribute that has been used across a number of visualizations. The interaction in this visualization is a drop down menu that selects the variable on the y axis. By allowing users to pick their own variable, they can isolate what interests them. It is clear that there is very little correlation when comparing review value with many other aspects which could be a result of the skewness of the distribution and oversaturation of good ratings. The one attribute that demonstrates any relationship to review value is number of reviews, with all of the low review values having relatively low review counts, indicating again a skewness, and that as a listing gains more reviews it will likely have a high (4-5 star) review value. This relationship could be the result of a cycle occurring where Airbnbs with more reviews are more likely to be selected by a user and thus more likely to receive more reviews, while an Airbnb with only a few low reviews will likely not be a candidate for users and receive few additional reviews as a result. This visualization addresses the task of identifying consistent qualities of high rankings and allows users to go beyond just one or two. The interaction is also helpful to avoid overwhelming viewers — displaying all the scatterplots at once would be hard to understand visually and take up an overwhelming amount of space. 
-  </p>
-  <p>
-    The interaction in this scatterplot elevates it from a static scatterplot by making it more helpful for exploration and understanding. The marks in this visualization are the points on the scatterplot and the channel is the position. The review value is on the x axis and the y axis is controlled by the drop down menu. The scales on both axes change to best reflect the data it is representing. The graph is made with Altair. 
   </p>
 
 
@@ -159,9 +144,6 @@
 		<img id="wcs" src="wordclouds/allston.png" alt="Image of Wordcloud depicting Allston" width="600" height="300">
     <p> 
       Ratings are a helpful metric by which to judge Airbnb listings, but they are not the end all be all. It is important that visitors and hosts also consider qualitative information. This word cloud display allows users to do just that by displaying a word cloud based on neighborhood descriptions. If someone is unfamiliar with the neighborhoods of Boston, these word clouds can help. The interaction is selection, which allows users to pick a specific neighborhood they would like to focus on and display a word cloud for. This interaction is helpful in data communication because displaying 25 word clouds at once would be overwhelming and make it difficult to parse through. This method allows users to look at descriptions one by one and better absorb the information. This visualization supplements the task of how a neighborhood can impact ratings by providing qualitative information. The main takeaway from the interactive word cloud is that Airbnb hosts typically describe key areas and their walking distance within the neighborhood. This indicates to new hosts that if they want to give effective descriptions they should mention how far these points of interest are; whether the attraction is anything from Boston Common to Fenway Park to the Italian restaurants in the North End, the host should describe these areas in their overview.
-    </p> 
-    <p>
-      The design of these word clouds is simple and to the point. The channel is the size of the word and the marks are the words themselves. Together, the text and the size it is displayed at help convey major themes to viewers. Part of the beauty of word clouds is that they can impart information very quickly — a brief glance at these word clouds can reveal interesting themes about the neighborhood. The color provides visual variety while still being easy to read. The word clouds are made using Matplotlib.
     </p>   
 
     <h2 id="section7">Conclusion</h2>
